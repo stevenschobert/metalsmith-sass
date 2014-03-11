@@ -1,6 +1,8 @@
 metalsmith-sass
 ===============
 
+[![Build Status](https://travis-ci.org/stevenschobert/metalsmith-sass.png?branch=master)](https://travis-ci.org/stevenschobert/metalsmith-sass)
+
 A Sass plugin for Metalsmith.
 
 ## Installation
@@ -65,5 +67,5 @@ the value.
 ## Credits
 
 Thanks to [Segment.io](http://github.com/segmentio) for creating and open-sourcing
-[Metalsmith](https://github.com/segmentio/metalsmith)! Also thanks to the whole community behing
-[node-sass](https://github.com/andrew/node-sass).
+[Metalsmith](https://github.com/segmentio/metalsmith)! Also thanks to the whole community behind
+the [node-sass](https://github.com/andrew/node-sass) project.
