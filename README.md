@@ -1,7 +1,8 @@
 metalsmith-sass
 ===============
 
-[![Build Status](https://travis-ci.org/stevenschobert/metalsmith-sass.png?branch=master)](https://travis-ci.org/stevenschobert/metalsmith-sass)
+[![Build Status](https://travis-ci.org/stevenschobert/metalsmith-sass.svg?branch=master)](https://travis-ci.org/stevenschobert/metalsmith-sass)
+[![Dependency Status](https://gemnasium.com/stevenschobert/metalsmith-sass.svg)](https://gemnasium.com/stevenschobert/metalsmith-sass)
 
 A Sass plugin for Metalsmith.
 
