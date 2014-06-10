@@ -12,7 +12,8 @@
     beforeEach(function (done) {
       var dirsToClean = [
         join(__dirname, "fixtures/basic/build"),
-        join(__dirname, "fixtures/partials/build")
+        join(__dirname, "fixtures/partials/build"),
+        join(__dirname, "fixtures/outputDir/build")
       ];
       each(dirsToClean, rm, done);
     });
@@ -46,6 +47,25 @@
               throw err;
             }
             equal(join(__dirname, "fixtures/partials/build"), join(__dirname, "fixtures/partials/expected"));
+            done();
+          });
+      });
+    });
+
+    describe("the outputDir option", function () {
+      it("should change the destination directory", function (done) {
+        metalsmith(__dirname)
+          .source("fixtures/outputDir/src")
+          .destination("fixtures/outputDir/build")
+          .use(sass({
+            outputStyle: 'expanded',
+            outputDir: 'nested/'
+          }))
+          .build(function (err) {
+            if (err) {
+              throw err;
+            }
+            equal(join(__dirname, "fixtures/outputDir/build"), join(__dirname, "fixtures/outputDir/expected"));
             done();
           });
       });
