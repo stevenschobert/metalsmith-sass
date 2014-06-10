@@ -54,6 +54,26 @@ few options you can pass through to it:
 
 Compression-level of the output CSS. Can be `'nested', 'expanded', 'compact', 'compressed'`.
 
+### outputDir
+
+Change the base folder path styles are outputed to. You can use this in combination with
+Metalsmith's `destination` option to control where styles end up after the build.
+
+The final output directory is equal to `Metalsmith.destination() + outputDirOption`. For example,
+the following setup output styles to `build/css/` even though the source files are in `src/scss/`:
+
+```js
+Metalsmith()
+  .source("src/")
+  .destination("build/")
+  .use(sass({
+    outputDir: 'css/'   // This changes the output dir to "build/css/" instead of "build/scss/"
+  }))
+  .build(function () {
+    done();
+  });
+```
+
 ### includePaths
 
 Array of path names of directories to look for `@import` statements. By default, this plugin should locate
