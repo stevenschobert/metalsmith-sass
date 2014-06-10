@@ -11,7 +11,8 @@
   describe("the plugin", function () {
     beforeEach(function (done) {
       var dirsToClean = [
-        join(__dirname, "fixtures/basic/build")
+        join(__dirname, "fixtures/basic/build"),
+        join(__dirname, "fixtures/partials/build")
       ];
       each(dirsToClean, rm, done);
     });
@@ -29,6 +30,22 @@
               throw err;
             }
             equal(join(__dirname, "fixtures/basic/build"), join(__dirname, "fixtures/basic/expected"));
+            done();
+          });
+      });
+
+      it("should ignore partial files", function (done) {
+        metalsmith(__dirname)
+          .source("fixtures/partials/src")
+          .destination("fixtures/partials/build")
+          .use(sass({
+            outputStyle: 'expanded'
+          }))
+          .build(function (err) {
+            if (err) {
+              throw err;
+            }
+            equal(join(__dirname, "fixtures/partials/build"), join(__dirname, "fixtures/partials/expected"));
             done();
           });
       });
