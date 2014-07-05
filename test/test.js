@@ -2,6 +2,8 @@
   'use strict';
 
   var each = require('async').each,
+      assert = require('assert'),
+      exists = require('fs').existsSync,
       join = require('path').join,
       metalsmith = require('metalsmith'),
       rm = require('rimraf'),
@@ -13,7 +15,8 @@
       var dirsToClean = [
         join(__dirname, 'fixtures/basic/build'),
         join(__dirname, 'fixtures/partials/build'),
-        join(__dirname, 'fixtures/outputDir/build')
+        join(__dirname, 'fixtures/outputDir/build'),
+        join(__dirname, 'fixtures/dotfiles/build')
       ];
       each(dirsToClean, rm, done);
     });
@@ -47,6 +50,23 @@
               throw err;
             }
             equal(join(__dirname, 'fixtures/partials/build'), join(__dirname, 'fixtures/partials/expected'));
+            done();
+          });
+      });
+
+      it('should ignore dotfiles', function (done) {
+        metalsmith(__dirname)
+          .source('fixtures/dotfiles/src')
+          .destination('fixtures/dotfiles/build')
+          .use(sass({
+            outputStyle: 'expanded'
+          }))
+          .build(function (err) {
+            if (err) {
+              throw err;
+            }
+            equal(join(__dirname, 'fixtures/dotfiles/build'), join(__dirname, 'fixtures/dotfiles/expected'));
+            assert(!exists(join(__dirname, 'fixtures/dotfiles/build/.badfile.css')));
             done();
           });
       });
