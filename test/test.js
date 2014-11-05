@@ -16,7 +16,8 @@
         join(__dirname, 'fixtures/basic/build'),
         join(__dirname, 'fixtures/partials/build'),
         join(__dirname, 'fixtures/outputDir/build'),
-        join(__dirname, 'fixtures/dotfiles/build')
+        join(__dirname, 'fixtures/dotfiles/build'),
+        join(__dirname, 'fixtures/invalid/build')
       ];
       each(dirsToClean, rm, done);
     });
