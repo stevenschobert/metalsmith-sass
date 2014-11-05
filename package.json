@@ -1,6 +1,6 @@
 {
   "name": "metalsmith-sass",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Sass plugin for Metalsmith.",
   "main": "lib/index.js",
   "scripts": {
