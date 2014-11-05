@@ -30,9 +30,7 @@
             outputStyle: 'expanded'
           }))
           .build(function (err) {
-            if (err) {
-              throw err;
-            }
+            assert.equal(err, null, "There shouldn't be any error.")
             equal(join(__dirname, 'fixtures/basic/build'), join(__dirname, 'fixtures/basic/expected'));
             done();
           });
@@ -67,6 +65,20 @@
             }
             equal(join(__dirname, 'fixtures/dotfiles/build'), join(__dirname, 'fixtures/dotfiles/expected'));
             assert(!exists(join(__dirname, 'fixtures/dotfiles/build/.badfile.css')));
+            done();
+          });
+      });
+
+      it('should fail when invalid file provided', function(done) {
+        metalsmith(__dirname)
+          .source('fixtures/invalid/src')
+          .destination('fixtures/invalid/build')
+          .use(sass({
+            outputStyle: 'expanded'
+          }))
+          .build(function (err) {
+            assert.notEqual(err, null, "Error should be set.")
+            assert(!exists(join(__dirname, 'fixtures/invalid/build/invalid.scss')));
             done();
           });
       });
