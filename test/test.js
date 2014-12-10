@@ -17,6 +17,7 @@
         join(__dirname, 'fixtures/partials/build'),
         join(__dirname, 'fixtures/outputDir/build'),
         join(__dirname, 'fixtures/dotfiles/build'),
+        join(__dirname, 'fixtures/front-matter/build'),
         join(__dirname, 'fixtures/invalid/build')
       ];
       each(dirsToClean, rm, done);
@@ -68,6 +69,23 @@
             assert(!exists(join(__dirname, 'fixtures/dotfiles/build/.badfile.css')));
             done();
           });
+      });
+
+      it('should operate correctly around YAML front matter', function (done) {
+        metalsmith(__dirname)
+        .source('fixtures/front-matter/src')
+        .destination('fixtures/front-matter/build')
+        .use(sass({
+          outputStyle: 'expanded'
+        }))
+        .build(function (err) {
+          if (err) {
+            throw err;
+          }
+          equal(join(__dirname, 'fixtures/front-matter/build'), join(__dirname, 'fixtures/front-matter/expected'));
+          assert(!exists(join(__dirname, 'fixtures/dotfiles/build/.badfile.css')));
+          done();
+        });
       });
 
       it('should fail when invalid file provided', function(done) {
