@@ -17,6 +17,7 @@
         join(__dirname, 'fixtures/partials/build'),
         join(__dirname, 'fixtures/outputDir/build'),
         join(__dirname, 'fixtures/dotfiles/build'),
+        join(__dirname, 'fixtures/imports/build'),
         join(__dirname, 'fixtures/invalid/build')
       ];
       each(dirsToClean, rm, done);
@@ -49,6 +50,22 @@
               throw err;
             }
             equal(join(__dirname, 'fixtures/partials/build'), join(__dirname, 'fixtures/partials/expected'));
+            done();
+          });
+      });
+
+      it('should compile with import statements', function (done) {
+        metalsmith(__dirname)
+          .source('fixtures/imports/src')
+          .destination('fixtures/imports/build')
+          .use(sass({
+            outputStyle: 'expanded'
+          }))
+          .build(function (err) {
+            if (err) {
+              throw err;
+            }
+            equal(join(__dirname, 'fixtures/imports/build'), join(__dirname, 'fixtures/imports/expected'));
             done();
           });
       });
