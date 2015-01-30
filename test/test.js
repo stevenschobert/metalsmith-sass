@@ -31,7 +31,7 @@
             outputStyle: 'expanded'
           }))
           .build(function (err) {
-            assert.equal(err, null, "There shouldn't be any error.")
+            assert.equal(err, null, "There shouldn't be any error.");
             equal(join(__dirname, 'fixtures/basic/build'), join(__dirname, 'fixtures/basic/expected'));
             done();
           });
@@ -78,7 +78,7 @@
             outputStyle: 'expanded'
           }))
           .build(function (err) {
-            assert.notEqual(err, null, "Error should be set.")
+            assert.notEqual(err, null, "Error should be set.");
             assert(!exists(join(__dirname, 'fixtures/invalid/build/invalid.scss')));
             done();
           });
