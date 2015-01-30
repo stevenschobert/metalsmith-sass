@@ -105,7 +105,7 @@
         });
       });
 
-      it('should fail when invalid file provided', function(done) {
+      it('should correctly report errors to Metalsmith', function(done) {
         metalsmith(__dirname)
           .source('fixtures/invalid/src')
           .destination('fixtures/invalid/build')
@@ -113,7 +113,7 @@
             outputStyle: 'expanded'
           }))
           .build(function (err) {
-            assert.notEqual(err, null, "Error should be set.");
+            assert(err.message && /aninvalidrule/.test(err.message));
             assert(!exists(join(__dirname, 'fixtures/invalid/build/invalid.scss')));
             done();
           });
