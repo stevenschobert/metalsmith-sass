@@ -105,6 +105,25 @@
         });
       });
 
+      it('should pass options through to node-sass', function (done) {
+        metalsmith(__dirname)
+        .source('fixtures/passthrough/src')
+        .destination('fixtures/passthrough/build')
+        .use(sass({ passthroughOptions: {
+          outputStyle: 'expanded',
+          precision: 2,
+          sourceComments: false
+        } }))
+        .build(function (err) {
+          if (err) {
+            throw err;
+          }
+          assert.equal(err, null, "There shouldn't be any error.");
+          equal(join(__dirname, 'fixtures/passthrough/build'), join(__dirname, 'fixtures/passthrough/expected'));
+          done();
+        });
+      });
+
       it('should correctly report errors to Metalsmith', function(done) {
         metalsmith(__dirname)
           .source('fixtures/invalid/src')

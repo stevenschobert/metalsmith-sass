@@ -85,6 +85,27 @@ all imports own its own, but if you are getting `not found` errors, try manually
 Base path to use when evaluating `image-url()` functions in a stylesheet. Path will be prefixed to
 the value.
 
+### passthroughOptions
+
+Object passed on as options directly to the compiler;
+see [node-sass#options](https://github.com/sass/node-sass#options) for the full list.
+
+```js
+Metalsmith()
+  .source("src/")
+  .destination("build/")
+  .use(sass({
+    outputStyle: "expanded",
+    passthroughOptions: {
+      precision: 2,
+      sourceComments: true
+    }
+  }))
+  .build(function () {
+    done();
+  });
+```
+
 ## Credits
 
 Thanks to [Segment.io](http://github.com/segmentio) for creating and open-sourcing
