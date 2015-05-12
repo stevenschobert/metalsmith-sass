@@ -85,6 +85,10 @@ all imports own its own, but if you are getting `not found` errors, try manually
 Base path to use when evaluating `image-url()` functions in a stylesheet. Path will be prefixed to
 the value.
 
+### sourceMap
+
+Boolean to enable generation of sourceMap. The created sourceMap have the same name and location to the css file, with `.map` extension.
+
 ## Credits
 
 Thanks to [Segment.io](http://github.com/segmentio) for creating and open-sourcing

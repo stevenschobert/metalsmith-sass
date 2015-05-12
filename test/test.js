@@ -30,7 +30,7 @@
           .source('fixtures/basic/src')
           .destination('fixtures/basic/build')
           .use(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'nested'
           }))
           .build(function (err) {
             assert.equal(err, null, "There shouldn't be any error.");
@@ -44,7 +44,7 @@
           .source('fixtures/partials/src')
           .destination('fixtures/partials/build')
           .use(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'nested'
           }))
           .build(function (err) {
             if (err) {
@@ -60,7 +60,7 @@
           .source('fixtures/imports/src')
           .destination('fixtures/imports/build')
           .use(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'nested'
           }))
           .build(function (err) {
             if (err) {
@@ -76,7 +76,7 @@
           .source('fixtures/dotfiles/src')
           .destination('fixtures/dotfiles/build')
           .use(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'nested'
           }))
           .build(function (err) {
             if (err) {
@@ -93,7 +93,7 @@
         .source('fixtures/front-matter/src')
         .destination('fixtures/front-matter/build')
         .use(sass({
-          outputStyle: 'expanded'
+          outputStyle: 'nested'
         }))
         .build(function (err) {
           if (err) {
@@ -110,7 +110,7 @@
           .source('fixtures/invalid/src')
           .destination('fixtures/invalid/build')
           .use(sass({
-            outputStyle: 'expanded'
+            outputStyle: 'nested'
           }))
           .build(function (err) {
             assert(err.message && /aninvalidrule/.test(err.message));
@@ -120,13 +120,32 @@
       });
     });
 
+    describe('the sourcemaps option', function() {
+      it('sourcemap', function(done){
+        metalsmith(__dirname)
+            .source('fixtures/sourcemaps/src')
+            .destination('fixtures/sourcemaps/build')
+            .use(sass({
+              outputStyle: 'nested',
+              sourceMap: true
+            }))
+            .build(function (err) {
+              if (err) {
+                throw err;
+              }
+              equal(join(__dirname, 'fixtures/sourcemaps/build'), join(__dirname, 'fixtures/sourcemaps/expected'));
+              done();
+            });
+      });
+    });
+
     describe('the outputDir option', function () {
       it('should change the destination directory', function (done) {
         metalsmith(__dirname)
           .source('fixtures/outputDir/src')
           .destination('fixtures/outputDir/build')
           .use(sass({
-            outputStyle: 'expanded',
+            outputStyle: 'nested',
             outputDir: 'nested/'
           }))
           .build(function (err) {
