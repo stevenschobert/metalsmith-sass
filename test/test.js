@@ -7,6 +7,7 @@
       join = require('path').join,
       metalsmith = require('metalsmith'),
       rm = require('rimraf'),
+      types = require('node-sass').types,
       sass = require('..'),
       equal = require('assert-dir-equal');
 
@@ -115,6 +116,27 @@
           .build(function (err) {
             assert(err.message && /aninvalidrule/.test(err.message));
             assert(!exists(join(__dirname, 'fixtures/invalid/build/invalid.scss')));
+            done();
+          });
+      });
+
+      it('should accept custom functions', function(done) {
+        metalsmith(__dirname)
+          .source('fixtures/functions/src')
+          .destination('fixtures/functions/build')
+          .use(sass({
+            outputStyle: 'expanded',
+            functions: {
+              'test($arg)': function(arg) {
+                return new types.String('#' + arg.getValue() + '123');
+              }
+            }
+          }))
+          .build(function (err) {
+            if (err) {
+              throw err;
+            }
+            equal(join(__dirname, 'fixtures/functions/build'), join(__dirname, 'fixtures/functions/expected'));
             done();
           });
       });

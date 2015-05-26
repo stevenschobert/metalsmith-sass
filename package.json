@@ -29,6 +29,6 @@
   },
   "dependencies": {
     "async": "^0.9.0",
-    "node-sass": "^2.0.1"
+    "node-sass": "^3.0.0"
   }
 }
