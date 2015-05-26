@@ -71,6 +71,27 @@ Metalsmith()
   });
 ```
 
+## Source Maps
+
+The easiest way to enable source maps in your metalsmith project is to add the following options:
+
+```js
+Metalsmith()
+  .source("src/")
+  .destination("build/")
+  .use(sass({
+    sourceMap: true,
+    sourceMapContents: true   // This will embed all the Sass contents in your source maps.
+  }))
+  .build(function () {
+    done();
+  });
+```
+
+Though the `sourceMapContents` is not required, I recommend adding it, otherwise you'll need to
+manually serve up your `.scss` files along with your compiled `.css` files when you publish your
+site.
+
 ## Credits
 
 Thanks to [Segment.io](http://github.com/segmentio) for creating and open-sourcing
