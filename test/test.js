@@ -25,6 +25,10 @@
       each(dirsToClean, rm, done);
     });
 
+    it('should expose node-sass types', function() {
+      assert.equal(sass.types, types);
+    });
+
     describe('core', function () {
       it('should compile sass files', function (done) {
         metalsmith(__dirname)
