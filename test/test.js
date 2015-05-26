@@ -20,7 +20,8 @@
         join(__dirname, 'fixtures/dotfiles/build'),
         join(__dirname, 'fixtures/imports/build'),
         join(__dirname, 'fixtures/front-matter/build'),
-        join(__dirname, 'fixtures/invalid/build')
+        join(__dirname, 'fixtures/invalid/build'),
+        join(__dirname, 'fixtures/maps/build')
       ];
       each(dirsToClean, rm, done);
     });
@@ -72,6 +73,23 @@
               throw err;
             }
             equal(join(__dirname, 'fixtures/imports/build'), join(__dirname, 'fixtures/imports/expected'));
+            done();
+          });
+      });
+
+      it('should compile source maps if enabled', function (done) {
+        metalsmith(__dirname)
+          .source('fixtures/maps/src')
+          .destination('fixtures/maps/build')
+          .use(sass({
+            sourceMap: true,
+            sourceMapContents: true
+          }))
+          .build(function (err) {
+            if (err) {
+              throw err;
+            }
+            equal(join(__dirname, 'fixtures/maps/build'), join(__dirname, 'fixtures/maps/expected'));
             done();
           });
       });
