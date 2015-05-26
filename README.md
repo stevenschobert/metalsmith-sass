@@ -47,13 +47,9 @@ metalsmith.use(sass({
 
 ## Options
 
-Under the hood, this plugin is using [node-sass](https://github.com/andrew/node-sass), and there are
-few options you can pass through to it:
+See [node-sass](https://github.com/andrew/node-sass) for a complete list of supported options.
 
-
-### outputStyle
-
-Compression-level of the output CSS. Can be `'nested', 'expanded', 'compact', 'compressed'`.
+In addition to the options that node-sass provides, metalsmith-sass provides the following options:
 
 ### outputDir
 
@@ -74,16 +70,6 @@ Metalsmith()
     done();
   });
 ```
-
-### includePaths
-
-Array of path names of directories to look for `@import` statements. By default, this plugin should locate
-all imports own its own, but if you are getting `not found` errors, try manually adding some paths.
-
-### imagePath
-
-Base path to use when evaluating `image-url()` functions in a stylesheet. Path will be prefixed to
-the value.
 
 ## Credits
 
