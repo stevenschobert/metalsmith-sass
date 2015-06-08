@@ -171,7 +171,9 @@
           .destination('fixtures/outputDir/build')
           .use(sass({
             outputStyle: 'expanded',
-            outputDir: 'nested/'
+            outputDir: function(original) {
+              return original.replace("scss", "nested");
+            }
           }))
           .build(function (err) {
             if (err) {
