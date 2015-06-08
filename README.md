@@ -71,6 +71,25 @@ Metalsmith()
   });
 ```
 
+As of version [v1.1](https://github.com/stevenschobert/metalsmith-sass/releases/v1.1.0), you can also use a function to dynamically manipulate the output dir.
+
+This is useful if you want to preserve your folder structure, but change just one folder name.
+
+```js
+Metalsmith()
+  .source("src/")
+  .destination("build/")
+  .use(sass({
+    outputDir: function(originalPath) { 
+      // this will change scss/some/path to css/some/path
+      return originalPath.replace("scss", "css");
+    }
+  }))
+  .build(function () {
+    done();
+  });
+```
+
 ## Source Maps
 
 The easiest way to enable source maps in your metalsmith project is to add the following options:
