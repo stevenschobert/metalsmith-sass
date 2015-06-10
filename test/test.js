@@ -21,7 +21,8 @@
         join(__dirname, 'fixtures/imports/build'),
         join(__dirname, 'fixtures/front-matter/build'),
         join(__dirname, 'fixtures/invalid/build'),
-        join(__dirname, 'fixtures/maps/build')
+        join(__dirname, 'fixtures/maps/build'),
+        join(__dirname, 'fixtures/sass-type/build')
       ];
       each(dirsToClean, rm, done);
     });
@@ -31,7 +32,7 @@
     });
 
     describe('core', function () {
-      it('should compile sass files', function (done) {
+      it('should compile .scss files', function (done) {
         metalsmith(__dirname)
           .source('fixtures/basic/src')
           .destination('fixtures/basic/build')
@@ -41,6 +42,20 @@
           .build(function (err) {
             assert.equal(err, null, "There shouldn't be any error.");
             equal(join(__dirname, 'fixtures/basic/build'), join(__dirname, 'fixtures/basic/expected'));
+            done();
+          });
+      });
+
+      it('should compile .sass files', function (done) {
+        metalsmith(__dirname)
+          .source('fixtures/sass-type/src')
+          .destination('fixtures/sass-type/build')
+          .use(sass({
+            outputStyle: 'expanded'
+          }))
+          .build(function (err) {
+            assert.equal(err, null, "There shouldn't be any error.");
+            equal(join(__dirname, 'fixtures/sass-type/build'), join(__dirname, 'fixtures/sass-type/expected'));
             done();
           });
       });
