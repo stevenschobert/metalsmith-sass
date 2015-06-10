@@ -111,6 +111,13 @@ Though the `sourceMapContents` is not required, I recommend adding it, otherwise
 manually serve up your `.scss` files along with your compiled `.css` files when you publish your
 site.
 
+## .sass files
+
+As of version [v1.2](https://github.com/stevenschobert/metalsmith-sass/releases/v1.2.0),
+metalsmith-sass automatically handles `.sass` files, so you don't need to specify the `indentedSyntax`
+option. Though you might still need set options for `indentType` and `indentWidth` if you are
+using something other than 2 spaces for indentation.
+
 ## Credits
 
 Thanks to [Segment.io](http://github.com/segmentio) for creating and open-sourcing
