@@ -4,7 +4,7 @@
   "description": "Sass plugin for Metalsmith.",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha --reporter spec test/test.js"
+    "test": "mocha --harmony --reporter spec test/test.js"
   },
   "repository": {
     "type": "git",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/stevenschobert/metalsmith-sass",
   "devDependencies": {
-    "metalsmith": "^1.7.0",
+    "metalsmith": "^2.0.1",
     "mocha": "^2.2.5",
     "rimraf": "^2.3.4",
     "assert-dir-equal": "^1.0.1",
