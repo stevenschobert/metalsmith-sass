@@ -29,6 +29,7 @@
   },
   "dependencies": {
     "async": "^1.0.0",
+    "extend": "^2.0.1",
     "node-sass": "^3.1.2"
   }
 }
