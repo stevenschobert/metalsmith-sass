@@ -9,6 +9,6 @@
 		"@import 'vendor/part';\n",
 		"$color: #eee;\n\n.myclass {\n  background: $color;\n}\n"
 	],
-	"mappings": "ACEA,QAAQ,AAAC,CACP,UAAU,CAHJ,IAAI,CAEF",
-	"names": []
+	"names": [],
+	"mappings": "ACEA,AAAA,QAAQ,AAAC,CACP,UAAU,CAHJ,IAAI,CAIX"
 }
