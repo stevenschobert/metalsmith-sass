@@ -21,11 +21,11 @@
   },
   "homepage": "https://github.com/stevenschobert/metalsmith-sass",
   "devDependencies": {
-    "metalsmith": "^2.0.1",
-    "mocha": "^2.2.5",
-    "rimraf": "^2.3.4",
+    "metalsmith": "^2.3.0",
+    "mocha": "^3.2.0",
+    "rimraf": "^2.5.4",
     "assert-dir-equal": "^1.0.1",
-    "assert": "^1.3.0"
+    "assert": "^1.4.1"
   },
   "dependencies": {
     "async": "^1.0.0",
