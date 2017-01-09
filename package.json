@@ -28,7 +28,7 @@
     "assert": "^1.4.1"
   },
   "dependencies": {
-    "async": "^1.0.0",
+    "async": "^2.1.4",
     "node-sass": "^4.2.0"
   }
 }
