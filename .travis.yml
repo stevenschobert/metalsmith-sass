@@ -2,7 +2,8 @@ language: node_js
 compiler:
   - gcc
 node_js:
-  - "0.12"
+  - "node"
+  - "lts/*"
 before_install:
   - sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test;
   - sudo apt-get update;
