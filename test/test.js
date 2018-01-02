@@ -32,6 +32,20 @@
     });
 
     describe('core', function () {
+      it('should support absolute source path with imports', function (done) {
+        metalsmith(__dirname)
+          .source(__dirname + '/fixtures/imports/src')
+          .destination('fixtures/imports/build')
+          .use(sass({
+            outputStyle: 'expanded'
+          }))
+          .build(function (err) {
+            assert.equal(err, null, "There shouldn't be any error.");
+            equal(join(__dirname, 'fixtures/imports/build'), join(__dirname, 'fixtures/imports/expected'));
+            done();
+          });
+      });
+
       it('should compile .scss files', function (done) {
         metalsmith(__dirname)
           .source('fixtures/basic/src')
