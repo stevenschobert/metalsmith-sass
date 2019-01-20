@@ -1,5 +1,12 @@
 # Changelog
 
+## [v1.6.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v1.6.0)
+
+_01/20/2018_
+
+- Updated to [node-sass v4.11](https://github.com/sass/node-sass/releases/tag/v4.11.0).
+- Fixed performance issue with calling `toString()` on non-sass files. Thanks @crazy2be! #47 :tada:
+
 ## [v1.4.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v1.4.0)
 
 _01/09/2017_
