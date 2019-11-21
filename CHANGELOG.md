@@ -1,6 +1,8 @@
 # Changelog
 
-## Unreleased
+## [v1.7.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v1.7.0)
+
+_11/21/2019_
 
 - Enable support for Node.js version 12/13 by upgrading to [node-sass v4.13.0](https://github.com/sass/node-sass/releases/tag/v4.13.0) - thanks [@nickcolley](https://github.com/nickcolley).
 
