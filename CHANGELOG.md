@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Enable support for Node.js version 12/13 by upgrading to [node-sass v4.13.0](https://github.com/sass/node-sass/releases/tag/v4.13.0) - thanks [@nickcolley](https://github.com/nickcolley).
+
 ## [v1.6.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v1.6.0)
 
 _01/20/2018_
@@ -109,4 +113,3 @@ _06/09/2014_
 
 - Partials are now properly ignored (thanks [@dpisklov](https://github.com/dpisklov)!). Addresses #1 and #2.
 - Added an `outputDir` option. Can be used in combination with `Metalsmith.destination()` to control output paths for stylesheets.
-
