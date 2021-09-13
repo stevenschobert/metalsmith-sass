@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Updated to [node-sass v6.0.1](https://github.com/sass/node-sass/releases/tag/v6.0.1). This drops support for Node 10 and older.
+
 ## [v1.7.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v1.7.0)
 
 _11/21/2019_
