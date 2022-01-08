@@ -1,15 +1,17 @@
 metalsmith-sass
 ===============
 
-[![Build Status](https://travis-ci.org/stevenschobert/metalsmith-sass.svg?branch=master)](https://travis-ci.org/stevenschobert/metalsmith-sass)
+[![Build Status](https://app.travis-ci.com/stevenschobert/metalsmith-sass.svg?branch=master)](https://app.travis-ci.com/stevenschobert/metalsmith-sass)
 
 A Sass plugin for Metalsmith.
 
 ## Installation
 
 ```sh
-npm install --save metalsmith-sass
+npm install --save metalsmith-sass node-sass
 ```
+
+> Note: As of [v2.0](https://github.com/stevenschobert/metalsmith-sass/releases/v2.0.0), `node-sass` is listed as a peer dependency, and will need to be installed alongside metalsmith-sass as shown above.
 
 ## Getting Started
 
@@ -37,7 +39,7 @@ If you are using the JS Api for Metalsmith, then you can require the module and 
 `.use()` directives:
 
 ```js
-var sass = require('metalsmith-sass');
+var sass = require("metalsmith-sass");
 
 metalsmith.use(sass({
   outputStyle: "expanded"
@@ -52,7 +54,7 @@ In addition to the options that node-sass provides, metalsmith-sass provides the
 
 ### outputDir
 
-Change the base folder path styles are outputed to. You can use this in combination with
+Change the base folder path styles are output to. You can use this in combination with
 Metalsmith's `destination` option to control where styles end up after the build.
 
 The final output directory is equal to `Metalsmith.destination() + outputDirOption`. For example,
@@ -63,7 +65,7 @@ Metalsmith()
   .source("src/")
   .destination("build/")
   .use(sass({
-    outputDir: 'css/'   // This changes the output dir to "build/css/" instead of "build/scss/"
+    outputDir: "css/"   // This changes the output dir to "build/css/" instead of "build/scss/"
   }))
   .build(function () {
     done();
@@ -75,11 +77,11 @@ As of version [v1.1](https://github.com/stevenschobert/metalsmith-sass/releases/
 This is useful if you want to preserve your folder structure, but change just one folder name.
 
 ```js
-Metalsmith()
+Metalsmith(__dirname)
   .source("src/")
   .destination("build/")
   .use(sass({
-    outputDir: function(originalPath) { 
+    outputDir: function(originalPath) {
       // this will change scss/some/path to css/some/path
       return originalPath.replace("scss", "css");
     }
@@ -94,7 +96,7 @@ Metalsmith()
 The easiest way to enable source maps in your metalsmith project is to add the following options:
 
 ```js
-Metalsmith()
+Metalsmith(__dirname)
   .source("src/")
   .destination("build/")
   .use(sass({

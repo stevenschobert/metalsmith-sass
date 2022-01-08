@@ -1,5 +1,16 @@
 # Changelog
 
+## [v2.0.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v2.0.0)
+
+_01/06/2022_
+
+**BREAKING CHANGE:** `node-sass` has been changed from a direct dependency to a [peer dependency](https://nodejs.org/es/blog/npm/peer-dependencies/). If you are upgrading from v1.x.x, you may need to install it directly in your project using `npm install --save node-sass`.
+
+* Changed `node-sass` to a peer dependency. This gives you direct control over which version of `node-sass` you want to use in your project going forward. No more waiting for metalsmith-sass releases!
+* Upgraded dependencies and resolved vulnerabilities.
+* Remove test files from npm distribution.
+* Enable support for all versions of Node.js supported by node-sass. Going forward, whichever version of node-sass you install will determine your Node.js support. See [node-sass' version support policy](https://github.com/sass/node-sass#node-version-support-policy) for details.
+
 ## [v1.7.0](https://github.com/stevenschobert/metalsmith-sass/releases/tag/v1.7.0)
 
 _11/21/2019_

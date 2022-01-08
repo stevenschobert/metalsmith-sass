@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  var each = require('async').each,
+  var each = require('async/each'),
       assert = require('assert'),
       exists = require('fs').existsSync,
       join = require('path').join,
